@@ -2,7 +2,7 @@
 
 const config = require('../');
 const fs = require('fs');
-const stylelint = require('stylelint');
+const stylelint = require('ec0lint-style');
 
 const validScss = fs.readFileSync('./__tests__/valid.scss', 'utf-8');
 const invalidScss = fs.readFileSync('./__tests__/invalid.scss', 'utf-8');
@@ -11,7 +11,7 @@ describe('flags no warnings with valid scss', () => {
 	let result;
 
 	beforeEach(() => {
-		result = stylelint.lint({
+		result = ec0lint.lint({
 			code: validScss,
 			config,
 		});
@@ -30,7 +30,7 @@ describe('flags warnings with invalid scss', () => {
 	let result;
 
 	beforeEach(() => {
-		result = stylelint.lint({
+		result = ec0lint.lint({
 			code: invalidScss,
 			config,
 		});
@@ -40,23 +40,39 @@ describe('flags warnings with invalid scss', () => {
 		return result.then((data) => expect(data.errored).toBeTruthy());
 	});
 
-	it('flags one warning', () => {
-		return result.then((data) => expect(data.results[0].warnings).toHaveLength(1));
+	it('flags two warnings', () => {
+		return result.then((data) => expect(data.results[0].warnings).toHaveLength(2));
 	});
 
-	it('correct warning text', () => {
+	it('correct warning text no-ttf-font-files', () => {
 		return result.then((data) =>
 			expect(data.results[0].warnings[0].text).toBe(
-				'Expected @if not statement rather than @if statement == null (scss/at-if-no-null)',
-			),
+        'Format of the custom font can be changed to WOFF or WOFF2. CO2 reduction: up to 80% of the font file.\n' +
+        'Your file can be converted online at https://cloudconvert.com/\n' +
+        'Estimated CO2 reduction that you can achieve by converting your file is: 0.01g (no-ttf-font-files)',
+        ),
 		);
 	});
 
-	it('correct rule flagged', () => {
+  it('correct warning text require-font-display', () => {
+    return result.then((data) =>
+      expect(data.results[0].warnings[1].text).toBe(
+        'No font-display property specified inside @font-face rule. (require-font-display)',
+      ),
+    );
+  });
+
+  it('correct rule flagged no-ttf-font-files', () => {
 		return result.then((data) =>
-			expect(data.results[0].warnings[0].rule).toBe('scss/at-if-no-null'),
+			expect(data.results[0].warnings[0].rule).toBe('no-ttf-font-files'),
 		);
 	});
+
+  it('correct rule flagged require-font-display', () => {
+    return result.then((data) =>
+      expect(data.results[0].warnings[1].rule).toBe('require-font-display'),
+    );
+  });
 
 	it('correct severity flagged', () => {
 		return result.then((data) => expect(data.results[0].warnings[0].severity).toBe('error'));
@@ -67,6 +83,6 @@ describe('flags warnings with invalid scss', () => {
 	});
 
 	it('correct column number', () => {
-		return result.then((data) => expect(data.results[0].warnings[0].column).toBe(1));
+		return result.then((data) => expect(data.results[0].warnings[0].column).toBe(43));
 	});
 });

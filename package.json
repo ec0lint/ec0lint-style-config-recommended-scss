@@ -1,16 +1,19 @@
 {
-  "name": "stylelint-config-recommended-scss",
-  "version": "8.0.0",
-  "description": "The recommended shareable SCSS config for Stylelint",
+  "name": "ec0lint-style-config-recommended-scss",
+  "version": "0.0.1",
+  "description": "The recommended shareable SCSS config for ec0lint-style",
   "keywords": [
-    "stylelint",
-    "stylelint-config",
-    "recommended",
+    "ec0lint",
+    "ec0lint-style",
+    "ec0lint-style-config",
     "scss"
   ],
-  "repository": "stylelint-scss/stylelint-config-recommended-scss",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ec0lint/ec0lint-style-config-recommended-scss.git"
+  },
   "license": "MIT",
-  "author": "kristerkari",
+  "author": "ec0lint",
   "main": "index.js",
   "files": [
     "index.js"
@@ -47,12 +50,12 @@
   },
   "dependencies": {
     "postcss-scss": "^4.0.2",
-    "stylelint-config-recommended": "^9.0.0",
-    "stylelint-scss": "^4.0.0"
+    "ec0lint-style-config-recommended": "^2.1.1"
   },
   "devDependencies": {
     "@stylelint/prettier-config": "^2.0.0",
     "@stylelint/remark-preset": "^4.0.0",
+    "ec0lint-style": "^2.1.1",
     "eslint": "^8.3.0",
     "eslint-config-stylelint": "^17.0.0",
     "eslint-plugin-eslint-comments": "^3.2.0",
@@ -63,16 +66,19 @@
     "np": "^7.6.0",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.4.1",
-    "remark-cli": "^11.0.0",
-    "stylelint": "^14.1.0"
+    "remark-cli": "^11.0.0"
   },
   "peerDependencies": {
     "postcss": "^8.3.3",
-    "stylelint": "^14.10.0"
+    "ec0lint-style": "^2.1.1"
   },
   "peerDependenciesMeta": {
     "postcss": {
       "optional": true
     }
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/ec0lint/ec0lint-style-config-recommended-scss/issues"
+  },
+  "homepage": "https://github.com/ec0lint/ec0lint-style-config-recommended-scss#readme"
 }
