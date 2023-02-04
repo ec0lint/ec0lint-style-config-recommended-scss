@@ -8,6 +8,10 @@
     "ec0lint-style-config",
     "scss"
   ],
+  "homepage": "https://github.com/ec0lint/ec0lint-style-config-recommended-scss#readme",
+  "bugs": {
+    "url": "https://github.com/ec0lint/ec0lint-style-config-recommended-scss/issues"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ec0lint/ec0lint-style-config-recommended-scss.git"
@@ -49,8 +53,8 @@
     ]
   },
   "dependencies": {
-    "postcss-scss": "^4.0.2",
-    "ec0lint-style-config-recommended": "^2.1.1"
+    "ec0lint-style-config-recommended": "^2.1.1",
+    "postcss-scss": "^4.0.2"
   },
   "devDependencies": {
     "@stylelint/prettier-config": "^2.0.0",
@@ -69,16 +73,12 @@
     "remark-cli": "^11.0.0"
   },
   "peerDependencies": {
-    "postcss": "^8.3.3",
-    "ec0lint-style": "^2.1.1"
+    "ec0lint-style": "^2.1.1",
+    "postcss": "^8.3.3"
   },
   "peerDependenciesMeta": {
     "postcss": {
       "optional": true
     }
-  },
-  "bugs": {
-    "url": "https://github.com/ec0lint/ec0lint-style-config-recommended-scss/issues"
-  },
-  "homepage": "https://github.com/ec0lint/ec0lint-style-config-recommended-scss#readme"
+  }
 }
