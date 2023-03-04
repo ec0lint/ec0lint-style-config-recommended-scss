@@ -56,6 +56,22 @@ Create a .ec0lint-stylerc.json configuration file in the root of your project wi
 
 `{ "extends": "ec0lint-style-config-recommended-scss" } `
 
+(c) If your code contains PostCSS / Tailwind
+
+`npm i ec0lint ec0lint-style ec0lint-style-config-postcss`
+
+Configure your project:
+
+`npm init @ec0lint/config`
+
+Create a .ec0lint-stylerc.json configuration file in the root of your project with the following content:
+
+`{ "extends": "ec0lint-style-config-postcss" } `
+
+Split your terminal and run:
+
+`npx ec0lint-style "**/*.html" npx ec0lint .`
+
 Split your terminal and run:
 
 `npx ec0lint-style "**/*.scss" npx ec0lint .`
