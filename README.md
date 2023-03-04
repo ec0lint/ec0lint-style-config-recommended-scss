@@ -56,6 +56,10 @@ Create a .ec0lint-stylerc.json configuration file in the root of your project wi
 
 `{ "extends": "ec0lint-style-config-recommended-scss" } `
 
+Split your terminal and run:
+
+`npx ec0lint-style "**/*.scss" npx ec0lint .`
+
 (c) If your code contains PostCSS / Tailwind
 
 `npm i ec0lint ec0lint-style ec0lint-style-config-postcss`
@@ -71,10 +75,6 @@ Create a .ec0lint-stylerc.json configuration file in the root of your project wi
 Split your terminal and run:
 
 `npx ec0lint-style "**/*.html" npx ec0lint .`
-
-Split your terminal and run:
-
-`npx ec0lint-style "**/*.scss" npx ec0lint .`
 
 Let's build an eco-friendly website!
 
